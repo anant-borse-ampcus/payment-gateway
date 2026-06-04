@@ -10,10 +10,13 @@ import org.springframework.stereotype.Service;
 public class PaymentServiceImpl implements PaymentService{
 
     private final PaymentRepository paymentRepository;
+    private final PaymentMapper paymentMapper;
 
     @Override
     public PaymentResponseDto createPayment(PaymentRequestDto paymentRequestDto) {
-        Payment payment = new Payment();
-        return null;
+        Payment payment = paymentMapper.toEntity(paymentRequestDto);
+        Payment saved = paymentRepository.save(payment);
+        log.info("Payment created  with id : {}", saved.getId());
+        return paymentMapper.toResponse(payment);
     }
 }
