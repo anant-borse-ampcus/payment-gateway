@@ -17,6 +17,6 @@ public class PaymentServiceImpl implements PaymentService{
         Payment payment = paymentMapper.toEntity(paymentRequestDto);
         Payment saved = paymentRepository.save(payment);
         log.info("Payment created  with id : {}", saved.getId());
-        return paymentMapper.toResponse(payment);
+        return paymentMapper.toResponse(saved);
     }
 }
