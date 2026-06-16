@@ -9,6 +9,10 @@ spring:
       ddl-auto: validate
     show-sql: true
     properties:
+#      jakarta.persistence.schema-generation.create-source: metadata
+#      jakarta.persistence.schema-generation.scripts.action: update
+#      jakarta.persistence.schema-generation.scripts.create-target: src/main/resources/db/migration/common/V202606091346__audit_columns_add.sql
+
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
