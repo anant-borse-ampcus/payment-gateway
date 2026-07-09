@@ -3,6 +3,8 @@ package com.payment_gateway.clone.payment;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface PaymentMapper {
     @Mapping(target = "id", ignore = true)
@@ -13,4 +15,5 @@ public interface PaymentMapper {
     Payment toEntity(PaymentRequestDto request);
 
     PaymentResponseDto toResponse(Payment payment);
+    List<PaymentResponseDto> toResponseList(List<Payment> payments);
 }
